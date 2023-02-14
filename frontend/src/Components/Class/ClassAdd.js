@@ -11,13 +11,8 @@ export const ClassAdd = () => {
   });
 
   const onSubmit = () => {
-    // const updatedData = [...classData];
-    const { classField, sectionField } = state;
-    const obj = { classField, sectionField };
-    // updatedData.push(obj);
-    // setClassData([...classData, state]);
     axios
-      .post("http://localhost:5000/classRoute/add-class", obj)
+      .post("http://localhost:5000/classRoute/add-class", state)
       .then((res) => console.log(res.data));
     setState({
       classField: "",
