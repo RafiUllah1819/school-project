@@ -22,9 +22,17 @@ mongoose
 app.use(cors());
 app.use(bodyParser.json());
 
-const classRouter = require("./routes/classRoute");
+const classRoute = require("./routes/classRoute");
+const parentsRoute = require("./routes/parentsRoute");
+const studentRoute = require("./routes/studentsRoute");
+const teacherRoute = require("./routes/teachersRoute");
+const attendanceRoute = require("./routes/attendanceRoute");
 
-app.use("/classRoute", classRouter);
+app.use("/classRoute", classRoute);
+app.use("/parents", parentsRoute);
+app.use("/students", studentRoute);
+app.use("/teachers", teacherRoute);
+app.use("/attendance", attendanceRoute);
 
 app.listen(port, () => {
   console.log(`app is running on port ${port} `);

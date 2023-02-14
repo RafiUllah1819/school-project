@@ -8,7 +8,7 @@ router.route("/").get((req, res) => {
     .catch((err) => res.status(400).json("error" + err));
 });
 
-router.route("add-student").post((req, res) => {
+router.route("/add-student").post((req, res) => {
   const updatedRec = new Students(req.body);
   updatedRec
     .save()
