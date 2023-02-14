@@ -1,0 +1,62 @@
+.page-wrapper {
+  .add-teacher {
+    .page-header {
+      margin-bottom: 33px;
+    }
+    .card {
+      @include card;
+      .card-body {
+        padding: 28px 37px 50px;
+        .card-text {
+          margin-bottom: 23px;
+        }
+        .form-fields-wrap {
+          flex-wrap: wrap;
+          justify-content: space-between;
+          .form-field {
+            width: 31%;
+            label {
+              @include font-format(16px, 20px);
+              font-weight: $wf-regular;
+              color: $black-color;
+            }
+            input {
+              @include font-format(13px, 16px);
+              color: #585858;
+              font-weight: $wf-regular;
+              height: 42px;
+              border: 1px solid #c1c1c1;
+              margin-bottom: 30px;
+              padding: 7px;
+            }
+            .file-field {
+              border: none;
+              margin-bottom: 10px;
+            }
+            .student-select {
+              position: relative;
+              select {
+                @include select;
+              }
+              .fa-angle-down {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 20px;
+                color: #686868;
+              }
+            }
+          }
+          .address-heading {
+            width: 100%;
+            margin-bottom: 10px;
+          }
+          .address {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+}

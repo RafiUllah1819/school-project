@@ -1,0 +1,89 @@
+//////////////////////////// MIXINS ////////////////////
+@mixin font-format($size, $lh) {
+  font-size: $size;
+  line-height: $lh;
+}
+
+@mixin heading {
+  font-family: $font-family-base;
+}
+
+@mixin h1 {
+  @include heading;
+  @include font-format(24px, 29px);
+  font-weight: $wf-medium;
+  color: $black-color;
+}
+
+@mixin h2 {
+  @include heading;
+  @include font-format(20px, 24px);
+  font-weight: $wf-medium;
+  color: $black-color;
+}
+
+@mixin h3 {
+  @include heading;
+  @include font-format(16px, 20px);
+  font-weight: $wf-regular;
+  color: #120ebb;
+}
+
+@mixin input-field {
+  @include font-format(20px, 25px);
+  height: 45px;
+  color: $black-color;
+  padding: 11px 17px;
+  min-width: 248px;
+  width: 100%;
+  border: 1px solid #c1c1c1;
+  border-radius: 3px;
+}
+
+@mixin btn {
+  @include font-format(20px, 24px);
+  font-family: $font-family-base;
+  font-weight: $wf-medium;
+  color: $white-color;
+  min-width: 169px;
+  padding: 10px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: $primary-bg-color;
+  text-align: center;
+  background: #4c49d6;
+  border-radius: 4px;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: none;
+    box-shadow: none;
+    background-color: $btn-hover-bgColor;
+  }
+}
+
+@mixin card {
+  background: #ffffff;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+}
+
+@mixin select {
+  @include font-format(13px, 16px);
+  padding: 7px;
+  display: block;
+  height: 42px;
+  width: 100%;
+  border: 1px solid #c1c1c1;
+  margin-bottom: 30px;
+  color: #585858;
+  appearance: none;
+  position: relative;
+  // z-index: 99;
+  background-color: transparent;
+}

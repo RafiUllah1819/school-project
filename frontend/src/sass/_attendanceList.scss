@@ -1,0 +1,178 @@
+// student scss start
+.page-wrapper {
+  margin-left: 272px;
+  padding: 161px 40px 0 40px;
+  position: relative;
+  transition: all 0.4s ease;
+
+  .attendance-list {
+    .page-header {
+      margin-bottom: 28px;
+    }
+    .attendance-list-form {
+      margin-bottom: 40px;
+      .search-wrap {
+        justify-content: space-between;
+        gap: 2%;
+
+        .search-fields {
+          width: 100%;
+
+          input {
+            @include input-field;
+            @include font-format(16px, 20px);
+          }
+        }
+      }
+    }
+  }
+  .table-section {
+    .card {
+      @include card;
+
+      .card-body {
+        padding: 20px;
+        .table-header {
+          margin: 0 0 20px 0;
+          justify-content: space-between;
+        }
+        .table-grid {
+          .list {
+            background-color: #4c49d6;
+            color: $white-color;
+            width: 29px;
+            height: 29px;
+            padding: 5px;
+            margin-right: 17px;
+            border-radius: 2px;
+          }
+          .grip {
+            width: 29px;
+            height: 29px;
+            background: #fff;
+            border: 1px solid #a2a2a2;
+            color: $black-color;
+            padding: 5px;
+            margin-right: 17px;
+            border-radius: 2px;
+          }
+          .download {
+            position: relative;
+            margin-right: 17px;
+            border-radius: 2px;
+            .download-icon {
+              position: absolute;
+              left: 16px;
+              color: $white-color;
+              top: 50%;
+              transform: translateY(-50%);
+            }
+            button {
+              @include btn;
+              height: 32px;
+              padding: 4px 0 4px 24px;
+            }
+          }
+          .plus-btn {
+            button {
+              width: 30px;
+              height: 30px;
+              background: #4c49d6;
+              border: none;
+              font-size: 24px;
+              color: #fff;
+            }
+          }
+        }
+        .table-responsive {
+          // border: 1px solid #adadad;
+          padding: 6px;
+          border-radius: 5px;
+          .table-entries {
+            margin-bottom: 33px;
+            span {
+              @include font-format(17px, 24px);
+              font-weight: $wf-regular;
+              color: $black-color;
+            }
+            .select-option {
+              position: relative;
+              select {
+                width: 78px;
+                height: 45px;
+                border: 1px solid #c1c1c1;
+                border-radius: 3px;
+                background-color: transparent;
+                font-size: 17px;
+                padding-left: 18px;
+                color: $black-color;
+                margin: 0 9px;
+                appearance: none;
+                position: relative;
+                z-index: 99;
+              }
+              .fa-angle-down {
+                position: absolute;
+                right: 25px;
+                top: 50%;
+                transform: translateY(-50%);
+                font-size: 23px;
+              }
+            }
+          }
+          table {
+            width: 100%;
+            border-collapse: collapse;
+            thead {
+              background: #4c49d6;
+              border-radius: 10px 10px 0px 0px;
+              height: 56px;
+              vertical-align: middle;
+              th {
+                @include font-format(16px, 20px);
+                color: $white-color;
+                font-weight: $wf-medium;
+
+                input {
+                  width: 16px;
+                  height: 16px;
+                  border: 2px solid $white-color;
+                  background: transparent;
+                  border-radius: 0;
+                }
+              }
+            }
+            tbody {
+              tr {
+                border-bottom: 1px solid #c2c2c2;
+
+                td {
+                  @include font-format(13px, 16px);
+                  color: #030303;
+                  font-weight: $wf-light;
+                  max-width: 185px;
+                  padding: 27px 17px;
+
+                  span {
+                    color: #030303;
+                    cursor: pointer;
+                  }
+                  .show {
+                    margin-right: 20px;
+                  }
+
+                  input {
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 0;
+                    border: 2px solid #000000;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

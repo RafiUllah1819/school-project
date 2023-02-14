@@ -1,0 +1,91 @@
+// sidebar scss start here
+.sidebar {
+  bottom: 0;
+  left: 0;
+  margin-top: 0;
+  position: fixed;
+  top: 0px;
+  transition: all 0.2s ease-in-out 0s;
+  width: 282px;
+  z-index: 2;
+  background: #ffffff;
+  box-shadow: 0px 0px 9px rgba(0, 0, 0, 0.25);
+  padding-top: 119px;
+  overflow: scroll;
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &::-webkit-scrollbar-thumb {
+    background-color: rgb(204, 204, 204);
+  }
+
+  .sidebar-menu {
+    padding: 15px;
+
+    li {
+      .sidebar-icon {
+        margin-right: 15px;
+      }
+      a {
+        @include font-format(18px, 22px);
+        font-weight: $wf-regular;
+        color: $nav-mainLink-color;
+        padding: 15px 40px;
+        width: 100%;
+        transition: all 0.2s ease-in-out 0s;
+      }
+
+      .active {
+        background-color: $primary-bg-color;
+        color: $white-color;
+        border-radius: 9px;
+      }
+
+      li.submenu.active ul {
+        display: block;
+      }
+
+      ul {
+        background-color: #eaeaea;
+        border-radius: 0px 0px 9px 9px;
+        margin-top: -4px;
+        display: none;
+
+        li {
+          a {
+            @include font-format(16px, 20px);
+            color: $nav-subLink-color;
+            padding-left: 40px;
+            transition: all 0.2s ease-in-out 0s;
+
+            .dot {
+              background: #5b5b5b;
+              height: 8px;
+              width: 8px;
+              border-radius: 50%;
+              margin-right: 15px;
+            }
+            .active {
+              background: $black-color;
+            }
+          }
+
+          .active {
+            background-color: transparent;
+            color: $black-color;
+            font-weight: $wf-medium;
+          }
+        }
+      }
+    }
+  }
+}
+
+li.submenu.active ul {
+  display: block;
+}

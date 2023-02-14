@@ -1,0 +1,36 @@
+@import "./sass/global";
+@import "./sass/mixins";
+@import "./sass/header";
+@import "./sass/sidebar";
+@import "./sass/studentAdd";
+@import "./sass/studentList";
+@import "./sass/studentView";
+@import "./sass/studentEdit";
+@import "./sass/teacherAdd";
+@import "./sass/teacherList";
+@import "./sass/teacherView";
+@import "./sass/attendanceView";
+@import "./sass/attendanceList";
+@import "./sass/attendanceAdd";
+@import "./sass/dashboard";
+@import "./sass/parentsAdd";
+@import "./sass/parentsList";
+@import "./sass/parentsView";
+@import "./sass/classAdd";
+
+h1 {
+  @include h1;
+}
+h2 {
+  @include h2;
+}
+h3 {
+  @include h3;
+}
+.input-field {
+  @include input-field;
+}
+
+.btn {
+  @include btn;
+}
