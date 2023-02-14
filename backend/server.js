@@ -18,11 +18,13 @@ mongoose
   .catch(() => {
     console.log("Error in MongoDB connection");
   });
-app.get("/", (req, res) => {
-  res.send("hello world");
-});
+
 app.use(cors());
 app.use(bodyParser.json());
+
+const classRouter = require("./routes/classRoute");
+
+app.use("/classRoute", classRouter);
 
 app.listen(port, () => {
   console.log(`app is running on port ${port} `);

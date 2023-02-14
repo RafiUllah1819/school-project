@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import axios from "axios";
+
 export const ClassAdd = () => {
   const [classData, setClassData] = useState([]);
 
@@ -8,35 +10,21 @@ export const ClassAdd = () => {
     sectionField: "",
   });
 
-  //   const onChangeClass = (e) => {
-  //     setState([...state.classField, e.target.value]);
-  //   };
-
-  const onChangeClass = (e) => {
-    const copy = { ...state };
-    copy.classField = e.target.value;
-    console.log("class field", copy);
-    setState(copy);
-  };
-
-  const onChangeSection = (e) => {
-    const copy = { ...state };
-    copy.sectionField = e.target.value;
-    setState(copy);
-  };
-
   const onSubmit = () => {
     // const updatedData = [...classData];
-    // const { classField, sectionField } = state;
-    // const obj = { classField, sectionField };
+    const { classField, sectionField } = state;
+    const obj = { classField, sectionField };
     // updatedData.push(obj);
-    setClassData([...classData, state]);
+    // setClassData([...classData, state]);
+    axios
+      .post("http://localhost:5000/classRoute/add-class", obj)
+      .then((res) => console.log(res.data));
     setState({
       classField: "",
       sectionField: "",
     });
   };
-  console.log("class data", classData);
+  // console.log("class data", classData);
 
   return (
     <div className="page-wrapper">
