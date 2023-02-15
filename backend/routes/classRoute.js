@@ -17,10 +17,10 @@ router.route("/add-class").post((req, res) => {
     .catch((err) => res.status(400).json("Err " + err));
 });
 
-router.route("/:id").get((req, res) => {
-  Category.findById(req.params.id)
-    .then((user) => res.json(user))
-    .catch((err) => res.status(400).json("Error " + err));
-});
+// router.route("/:id").get((req, res) => {
+//   Category.findById(req.params.id)
+//     .then((user) => res.json(user))
+//     .catch((err) => res.status(400).json("Error " + err));
+// });
 
 module.exports = router;

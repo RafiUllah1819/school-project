@@ -1,6 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
+import { get_AllClasses } from "../../Redux/Actions/ClassAction";
 
 export const StudentAdd = () => {
+  const dispatch = useDispatch();
+  // const allClasses = useSelector((state) => state.ReducerGetClass.getClasses);
+  // console.log("all classses", allClasses);
+
+  // useEffect(() => {
+  //   dispatch(get_AllClasses());
+  // }, []);
+
   return (
     <div className="page-wrapper">
       <div className="add-student container-fluid">

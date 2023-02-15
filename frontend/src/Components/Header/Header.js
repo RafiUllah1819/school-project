@@ -13,7 +13,7 @@ export const Header = () => {
           <div className="header-right">
             <div className="header-search-field">
               <span>
-                <i class="fa fa-search" aria-hidden="true"></i>
+                <i className="fa fa-search" aria-hidden="true"></i>
               </span>
               <input type="text" className="input-field" placeholder="Search" />
             </div>
@@ -24,7 +24,7 @@ export const Header = () => {
                 <h3>Administrator</h3>
               </div>
               <span>
-                <i class="fa fa-angle-down"></i>
+                <i className="fa fa-angle-down"></i>
               </span>
             </div>
           </div>

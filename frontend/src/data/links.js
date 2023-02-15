@@ -5,12 +5,12 @@ export const sidebarNavlinks = [
     subLink: [],
     status: "inactive",
     url: "/",
-    icon: <i class="fa-solid fa-chart-line"></i>,
+    icon: <i className="fa-solid fa-chart-line"></i>,
   },
   {
     id: 2,
     mainLink: "Student",
-    icon: <i class="fa-solid fa-graduation-cap"></i>,
+    icon: <i className="fa-solid fa-graduation-cap"></i>,
     subLink: [
       { id: 1, name: "Student List", status: "active", url: "/student-list" },
       { id: 2, name: "Student View", status: "", url: "/student-view" },
@@ -22,7 +22,7 @@ export const sidebarNavlinks = [
   {
     id: 3,
     mainLink: "Teacher",
-    icon: <i class="fa-solid fa-chalkboard-user"></i>,
+    icon: <i className="fa-solid fa-chalkboard-user"></i>,
     subLink: [
       { id: 1, name: "Teacher List", status: "active", url: "/teacher-list" },
       { id: 2, name: "Teacher View", status: "", url: "/teacher-view" },
@@ -34,7 +34,7 @@ export const sidebarNavlinks = [
   {
     id: 4,
     mainLink: "Attendance",
-    icon: <i class="fa-solid fa-clipboard-user"></i>,
+    icon: <i className="fa-solid fa-clipboard-user"></i>,
     subLink: [
       {
         id: 1,
@@ -51,7 +51,7 @@ export const sidebarNavlinks = [
   {
     id: 5,
     mainLink: "Parents",
-    icon: <i class="fa-solid fa-user-group"></i>,
+    icon: <i className="fa-solid fa-user-group"></i>,
     subLink: [
       { id: 1, name: "Parents List", status: "active", url: "/parents-list" },
       { id: 2, name: "Parents View", status: "", url: "/parents-view" },
@@ -63,7 +63,7 @@ export const sidebarNavlinks = [
   {
     id: 6,
     mainLink: "Time Table",
-    icon: <i class="fa-sharp fa-solid fa-calendar-week"></i>,
+    icon: <i className="fa-sharp fa-solid fa-calendar-week"></i>,
     subLink: [],
     url: "/time-table",
     status: "inactive",
@@ -71,7 +71,7 @@ export const sidebarNavlinks = [
   {
     id: 7,
     mainLink: "Invoice",
-    icon: <i class="fa-solid fa-file-invoice"></i>,
+    icon: <i className="fa-solid fa-file-invoice"></i>,
     subLink: [],
     status: "inactive",
   },
@@ -79,35 +79,35 @@ export const sidebarNavlinks = [
   {
     id: 8,
     mainLink: "Hostel",
-    icon: <i class="fa-solid fa-hotel"></i>,
+    icon: <i className="fa-solid fa-hotel"></i>,
     subLink: [],
     status: "inactive",
   },
   {
     id: 9,
     mainLink: "Mark List",
-    icon: <i class="fa-solid fa-file-invoice"></i>,
+    icon: <i className="fa-solid fa-file-invoice"></i>,
     subLink: [],
     status: "inactive",
   },
   {
     id: 10,
     mainLink: "Transport",
-    icon: <i class="fa-solid fa-bus-simple"></i>,
+    icon: <i className="fa-solid fa-bus-simple"></i>,
     subLink: [],
     status: "inactive",
   },
   {
     id: 11,
     mainLink: "Admission",
-    icon: <i class="fa-solid fa-id-card"></i>,
+    icon: <i className="fa-solid fa-id-card"></i>,
     subLink: [],
     status: "inactive",
   },
   {
     id: 12,
     mainLink: "HR",
-    icon: <i class="fa-solid fa-users"></i>,
+    icon: <i className="fa-solid fa-users"></i>,
     subLink: [],
     status: "inactive",
   },
