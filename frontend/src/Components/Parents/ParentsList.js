@@ -43,15 +43,15 @@ export const ParentsList = () => {
                 <h2>Parents</h2>
                 <div className="table-grid">
                   <span className="list">
-                    <i class="fa-solid fa-list"></i>
+                    <i className="fa-solid fa-list"></i>
                   </span>
                   <span className="grip">
                     {" "}
-                    <i class="fa-solid fa-grip"></i>
+                    <i className="fa-solid fa-grip"></i>
                   </span>
                   <span className="download">
                     <div className="download-icon">
-                      <i class="fa-solid fa-download"></i>
+                      <i className="fa-solid fa-download"></i>
                     </div>
                     <button>Download</button>
                   </span>
@@ -74,15 +74,13 @@ export const ParentsList = () => {
                       <option value="">7</option>
                       <option value="">8</option>
                       <option value="">9</option>
-                      <option value="" selected>
-                        10
-                      </option>
+                      <option value="">10</option>
                     </select>
                     <i className="fa fa-angle-down"></i>
                   </span>
                   <span>entries</span>
                 </div>
-                <table class="table">
+                <table className="table">
                   <thead>
                     <tr>
                       <th>
@@ -120,10 +118,10 @@ export const ParentsList = () => {
                       <td>abc@gmail.com</td>
                       <td>
                         <span className="show">
-                          <i class="fa-regular fa-eye"></i>
+                          <i className="fa-regular fa-eye"></i>
                         </span>
                         <span>
-                          <i class="fa-regular fa-pen-to-square"></i>
+                          <i className="fa-regular fa-pen-to-square"></i>
                         </span>
                       </td>
                     </tr>
@@ -144,10 +142,10 @@ export const ParentsList = () => {
                       <td>abc@gmail.com</td>
                       <td>
                         <span className="show">
-                          <i class="fa-regular fa-eye"></i>
+                          <i className="fa-regular fa-eye"></i>
                         </span>
                         <span>
-                          <i class="fa-regular fa-pen-to-square"></i>
+                          <i className="fa-regular fa-pen-to-square"></i>
                         </span>
                       </td>
                     </tr>
@@ -168,10 +166,10 @@ export const ParentsList = () => {
                       <td>abc@gmail.com</td>
                       <td>
                         <span className="show">
-                          <i class="fa-regular fa-eye"></i>
+                          <i className="fa-regular fa-eye"></i>
                         </span>
                         <span>
-                          <i class="fa-regular fa-pen-to-square"></i>
+                          <i className="fa-regular fa-pen-to-square"></i>
                         </span>
                       </td>
                     </tr>

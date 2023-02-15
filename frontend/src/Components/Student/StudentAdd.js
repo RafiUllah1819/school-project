@@ -7,9 +7,9 @@ export const StudentAdd = () => {
   // const allClasses = useSelector((state) => state.ReducerGetClass.getClasses);
   // console.log("all classses", allClasses);
 
-  // useEffect(() => {
-  //   dispatch(get_AllClasses());
-  // }, []);
+  useEffect(() => {
+    dispatch(get_AllClasses());
+  }, []);
 
   return (
     <div className="page-wrapper">
@@ -22,9 +22,7 @@ export const StudentAdd = () => {
             <h2 className="card-text">Student Information</h2>
             <div className="d-flex form-fields-wrap">
               <div className="form-field">
-                <label htmlFor="" className="form-label">
-                  Enter First Name *
-                </label>
+                <label className="form-label">Enter First Name *</label>
                 <input
                   type="text"
                   placeholder="First Name"

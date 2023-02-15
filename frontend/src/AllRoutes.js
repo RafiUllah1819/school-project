@@ -17,7 +17,7 @@ import { ParentsAdd } from "./Components/Parents/ParentsAdd";
 import { ParentsView } from "./Components/Parents/ParentsView";
 import { ParentsList } from "./Components/Parents/ParentsList";
 import { TimeTable } from "./pages/TimeTable";
-import { ClassAdd } from "./Components/Class/ClassAdd";
+import { ClassAdd } from "./Components/ClassCom/ClassAdd";
 
 export const AllRoutes = () => {
   return (
@@ -40,7 +40,7 @@ export const AllRoutes = () => {
           <Route path="/parents-view" element={<ParentsView />} />
           <Route path="/parents-list" element={<ParentsList />} />
           <Route path="/time-table" element={<TimeTable />} />
-          <Route path="/class-add" element={<ClassAdd />} />
+          <Route path="/add-class" element={<ClassAdd />} />
         </Route>
       </Routes>
     </div>

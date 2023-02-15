@@ -43,15 +43,15 @@ export const StudentList = () => {
                 <h2>Students</h2>
                 <div className="table-grid">
                   <span className="list">
-                    <i class="fa-solid fa-list"></i>
+                    <i className="fa-solid fa-list"></i>
                   </span>
                   <span className="grip">
                     {" "}
-                    <i class="fa-solid fa-grip"></i>
+                    <i className="fa-solid fa-grip"></i>
                   </span>
                   <span className="download">
                     <div className="download-icon">
-                      <i class="fa-solid fa-download"></i>
+                      <i className="fa-solid fa-download"></i>
                     </div>
                     <button>Download</button>
                   </span>
@@ -74,9 +74,7 @@ export const StudentList = () => {
                       <option value="">7</option>
                       <option value="">8</option>
                       <option value="">9</option>
-                      <option value="" selected>
-                        10
-                      </option>
+                      <option value="">10</option>
                     </select>
                     <i className="fa fa-angle-down"></i>
                   </span>

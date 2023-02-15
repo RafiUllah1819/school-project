@@ -13,10 +13,10 @@ const get_AllClasses = () => {
   };
 };
 
-const get_classes = (classes) => {
+const get_classes = (payload) => {
   return {
     type: GET_CLASSES,
-    classes,
+    payload,
   };
 };
 

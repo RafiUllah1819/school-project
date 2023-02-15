@@ -9,7 +9,7 @@ export const ReducerGetClass = (state = initialState, actions) => {
     case GET_CLASSES:
       return {
         ...state,
-        getClasses: actions.classes,
+        getClasses: actions.payload,
       };
     default:
       return state;

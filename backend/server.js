@@ -20,7 +20,7 @@ mongoose
   });
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 
 const classRoute = require("./routes/classRoute");
 const parentsRoute = require("./routes/parentsRoute");

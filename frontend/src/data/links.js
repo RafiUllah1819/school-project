@@ -114,8 +114,8 @@ export const sidebarNavlinks = [
   {
     id: 13,
     mainLink: "Class",
-    url: "/class-add",
-    icon: <i class="fa-solid fa-file-invoice"></i>,
+    url: "/add-class",
+    icon: <i className="fa-solid fa-file-invoice"></i>,
     subLink: [],
     status: "inactive",
   },

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { useSelector, useDispatch } from "react-redux";
+// import { useSelector, useDispatch } from "react-redux";
 // import { get_AllClasses } from "../../Redux/Actions/ClassAction";
 
 export const ClassAdd = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
+  const [data, setData] = useState([]);
 
   const [state, setState] = useState({
     classField: "",
@@ -16,15 +17,14 @@ export const ClassAdd = () => {
   // }, []);
 
   const onSubmit = () => {
-    // axios
-    //   .post("http://localhost:5000/classRoute/add-class", state)
-    //   .then((res) => console.log(res.data))
-    //   .catch((err) => console.log("error", err));
-    // setState({
-    //   classField: "",
-    //   sectionField: "",
-    // });
-    console.log("submit fun");
+    axios
+      .post("http://localhost:5000/classRoute/add-class", state)
+      .then((res) => console.log(res.data))
+      .catch((err) => console.log("error", err));
+    setState({
+      classField: "",
+      sectionField: "",
+    });
   };
   // console.log("class data", classData);
 
