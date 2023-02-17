@@ -1,14 +1,16 @@
 import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { get_AllClasses } from "../../Redux/Actions/ClassAction";
+import { fetchUsers } from "../../Redux/Actions/ClassAction";
 
 export const StudentAdd = () => {
   const dispatch = useDispatch();
-  // const allClasses = useSelector((state) => state.ReducerGetClass.getClasses);
-  // console.log("all classses", allClasses);
+  const allClasses = useSelector(
+    (state) => state.ReducerGetClass.getClasses.data
+  );
+  console.log("all classses", allClasses);
 
   useEffect(() => {
-    dispatch(get_AllClasses());
+    dispatch(fetchUsers());
   }, []);
 
   return (

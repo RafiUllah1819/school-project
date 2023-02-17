@@ -1,16 +1,30 @@
-import { GET_CLASSES, GET_SECTIONS } from "../Constants/Constants";
+import {
+  FETCH_CLASSES_FAILURE,
+  FETCH_CLASSES_REQUEST,
+  FETCH_CLASSES_SUCCESS,
+} from "../Constants/Constants";
 
 const initialState = {
   getClasses: [],
+  err: false,
 };
 
 export const ReducerGetClass = (state = initialState, actions) => {
+  console.log("actions", actions);
   switch (actions.type) {
-    case GET_CLASSES:
+    case FETCH_CLASSES_SUCCESS:
       return {
         ...state,
         getClasses: actions.payload,
       };
+
+    case FETCH_CLASSES_FAILURE:
+      return {
+        ...state,
+        errorMessage: actions.error,
+        err: true,
+      };
+
     default:
       return state;
   }

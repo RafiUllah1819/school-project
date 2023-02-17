@@ -5,7 +5,7 @@ import axios from "axios";
 
 export const ClassAdd = () => {
   // const dispatch = useDispatch();
-  const [data, setData] = useState([]);
+  const [category, setCategory] = useState([]);
 
   const [state, setState] = useState({
     classField: "",
@@ -13,10 +13,13 @@ export const ClassAdd = () => {
   });
 
   // useEffect(() => {
+
   //   dispatch(get_AllClasses());
   // }, []);
 
-  const onSubmit = () => {
+  const onSubmit = (e) => {
+    e.preventDefault();
+
     axios
       .post("http://localhost:5000/classRoute/add-class", state)
       .then((res) => console.log(res.data))
@@ -26,7 +29,7 @@ export const ClassAdd = () => {
       sectionField: "",
     });
   };
-  // console.log("class data", classData);
+  console.log("class data", state);
 
   return (
     <div className="page-wrapper">

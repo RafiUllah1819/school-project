@@ -5,9 +5,8 @@ const classSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-
   sectionField: {
-    type: String,
+    type: [String],
   },
 });
 
