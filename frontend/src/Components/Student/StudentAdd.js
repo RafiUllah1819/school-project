@@ -1,8 +1,11 @@
-import React, { useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchUsers } from "../../Redux/Actions/ClassAction";
+import { studentInfo, studentObj } from "../data";
+import { Input } from "../Input";
 
 export const StudentAdd = () => {
+  const [student, setStudent] = useState(studentObj);
   const dispatch = useDispatch();
   const allClasses = useSelector(
     (state) => state.ReducerGetClass.getClasses.data
@@ -12,6 +15,16 @@ export const StudentAdd = () => {
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
+
+  function handleChange(e) {
+    const { name, value } = e.target;
+    console.log(typeof value);
+    setStudent(Object.assign({}, student, { [name]: value }));
+  }
+
+  const selectRecord = (data) => {
+    return console.log("val", data);
+  };
 
   return (
     <div className="page-wrapper">
@@ -23,7 +36,85 @@ export const StudentAdd = () => {
           <div className="card-body">
             <h2 className="card-text">Student Information</h2>
             <div className="d-flex form-fields-wrap">
+              {studentInfo.map((info, index) => {
+                console.log(info);
+                if (info.status === "input") {
+                  return (
+                    <div key={index} className="form-field">
+                      <label htmlFor="" className="form-label">
+                        {info.label} *
+                      </label>
+                      <Input
+                        type={info.type}
+                        placeholder={info.placeholder}
+                        name={info.name}
+                        value={student[info.name]}
+                        onChange={handleChange}
+                        className={info.class}
+                      />
+                    </div>
+                  );
+                } else {
+                  return (
+                    <div key={index} className="form-field">
+                      <label htmlFor="" className="form-label">
+                        {info.label}*
+                      </label>
+                      <div className="student-select">
+                        <select name={info.name} onChange={handleChange}>
+                          <option value="select">Select</option>
+                          {info.value.map((item, index) => (
+                            <option key={index} value={item}>
+                              {item}
+                            </option>
+                          ))}
+                        </select>
+                        <i className="fa fa-angle-down"></i>
+                      </div>
+                    </div>
+                  );
+                }
+              })}
+
               <div className="form-field">
+                <label htmlFor="" className="form-label">
+                  Class
+                </label>
+                <div className="student-select">
+                  <select name="class" id="" onChange={handleChange}>
+                    <option value="">Select Class</option>
+                    {allClasses &&
+                      allClasses.map((option) => {
+                        return (
+                          <option
+                            key={option}
+                            value={option}
+                            onClick={selectRecord(option.classField)}
+                          >
+                            {option.classField}
+                          </option>
+                        );
+                      })}
+                  </select>
+                  <i className="fa fa-angle-down"></i>
+                </div>
+              </div>
+              <div className="form-field">
+                <label htmlFor="" className="form-label">
+                  Section
+                </label>
+                <div className="student-select">
+                  <select name="section" id="">
+                    <option value="">Select Section</option>
+                    <option value="">A</option>
+                    <option value="">2A</option>
+                    <option value="">3B</option>
+                  </select>
+                  <i className="fa fa-angle-down"></i>
+                </div>
+              </div>
+
+              {/* <div className="form-field">
                 <label className="form-label">Enter First Name *</label>
                 <input
                   type="text"
@@ -41,6 +132,7 @@ export const StudentAdd = () => {
                   className="input-field"
                 />
               </div>
+              
               <div className="form-field">
                 <label htmlFor="" className="form-label">
                   Gender*
@@ -168,7 +260,7 @@ export const StudentAdd = () => {
                   Upload Student Photo
                 </label>
                 <input type="file" className="file-field" />
-              </div>
+              </div> */}
             </div>
             <div className="form-field">
               <button className="btn">Submit</button>
