@@ -6,6 +6,7 @@ import { Input } from "../Input";
 
 export const StudentAdd = () => {
   const [student, setStudent] = useState(studentObj);
+  const [selectOption, setSelectOption] = useState([]);
   const dispatch = useDispatch();
   const allClasses = useSelector(
     (state) => state.ReducerGetClass.getClasses.data
@@ -18,13 +19,41 @@ export const StudentAdd = () => {
 
   function handleChange(e) {
     const { name, value } = e.target;
-    console.log(typeof value);
+    console.log("select onchange", value);
     setStudent(Object.assign({}, student, { [name]: value }));
   }
 
-  const selectRecord = (data) => {
-    return console.log("val", data);
+  const onSelectOption = (event) => {
+    const selectOption = event.target.value;
+    console.log("select clicked", selectOption);
+    const filterData = allClasses.filter(
+      (item) => item.classField === selectOption
+    );
+    const updatedSections =
+      filterData &&
+      filterData.map((data) => {
+        return data.sectionField;
+      });
+    console.log("updated secitons", updatedSections);
+    setSelectOption(updatedSections);
+    // console.log("updated dat", updatedata);
   };
+  console.log("select option", typeof selectOption);
+
+  const onSelectSection = (event) => {
+    const value = event.target.value;
+    console.log("section value", value);
+  };
+
+  // iterate list of sections
+  // const listOfSections =
+  //   selectOption &&
+  //   selectOption.map((option) => (
+  //     <option value={option} key={option}>
+  //       {option}
+  //     </option>
+  //   ));
+  // console.log("list of section", listOfSections);
 
   return (
     <div className="page-wrapper">
@@ -37,7 +66,7 @@ export const StudentAdd = () => {
             <h2 className="card-text">Student Information</h2>
             <div className="d-flex form-fields-wrap">
               {studentInfo.map((info, index) => {
-                console.log(info);
+                // console.log(info);
                 if (info.status === "input") {
                   return (
                     <div key={index} className="form-field">
@@ -56,7 +85,7 @@ export const StudentAdd = () => {
                   );
                 } else {
                   return (
-                    <div key={index} className="form-field">
+                    <div key={info} className="form-field">
                       <label htmlFor="" className="form-label">
                         {info.label}*
                       </label>
@@ -64,7 +93,7 @@ export const StudentAdd = () => {
                         <select name={info.name} onChange={handleChange}>
                           <option value="select">Select</option>
                           {info.value.map((item, index) => (
-                            <option key={index} value={item}>
+                            <option key={item._id} value={item}>
                               {item}
                             </option>
                           ))}
@@ -81,16 +110,12 @@ export const StudentAdd = () => {
                   Class
                 </label>
                 <div className="student-select">
-                  <select name="class" id="" onChange={handleChange}>
+                  <select name="class" id="" onChange={onSelectOption}>
                     <option value="">Select Class</option>
                     {allClasses &&
                       allClasses.map((option) => {
                         return (
-                          <option
-                            key={option}
-                            value={option}
-                            onClick={selectRecord(option.classField)}
-                          >
+                          <option key={option._id} value={option.classField}>
                             {option.classField}
                           </option>
                         );
@@ -104,12 +129,7 @@ export const StudentAdd = () => {
                   Section
                 </label>
                 <div className="student-select">
-                  <select name="section" id="">
-                    <option value="">Select Section</option>
-                    <option value="">A</option>
-                    <option value="">2A</option>
-                    <option value="">3B</option>
-                  </select>
+                  <select name="section" onChange={onSelectSection}></select>
                   <i className="fa fa-angle-down"></i>
                 </div>
               </div>

@@ -68,5 +68,21 @@ $wf-black: 900;
 .d-flex {
   display: flex;
 }
-
-
+.plus-btn a {
+  font-size: 20px;
+  font-family: $font-family-base;
+  font-weight: $wf-medium;
+  color: $white-color;
+  min-width: 52px;
+  padding: 4px 0;
+  border-radius: 4px;
+  box-sizing: border-box;
+  display: inline-block;
+  cursor: pointer;
+  outline: none;
+  border: none;
+  background-color: $primary-bg-color;
+  text-align: center;
+  background: #4c49d6;
+  border-radius: 4px;
+}

@@ -64,8 +64,11 @@ export const sidebarNavlinks = [
     id: 6,
     mainLink: "Time Table",
     icon: <i className="fa-sharp fa-solid fa-calendar-week"></i>,
-    subLink: [],
-    url: "/time-table",
+    subLink: [
+      { id: 1, name: "Time Table Add", status: "", url: "/time-table-add" },
+      { id: 2, name: "Time Table List", status: "", url: "/time-table-list" },
+    ],
+    // url: "/time-table",
     status: "inactive",
   },
   {
