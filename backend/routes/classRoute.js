@@ -11,19 +11,34 @@ router.route("/").get((req, res) => {
 // add record
 router.route("/add-class").post(async (req, res) => {
   const data = await ClassModal.find();
-  const { classField, sectionField } = req.body;
-  const newClass = new ClassModal(req.body);
+  // console.log("backend data", data);
+  // const { classField, sectionField } = req.body;
+
+  const classField = req.body.classField.toLowerCase();
+  const sectionField = req.body.sectionField.toLowerCase();
+
+  console.log("classfield", classField);
+  console.log("secfield", sectionField);
+  const newClass = new ClassModal({ classField, sectionField });
   try {
     if (data.length <= 0) {
       const updatedClass = await newClass.save();
       console.log("updated class", updatedClass);
-      res.status(201).send("class added successfully");
+      res.status(201).send({
+        message: "first time class and section added",
+        updatedClass: updatedClass,
+        success: true,
+      });
     }
     const isFound = data.find((item) => item.classField === classField);
     if (!isFound) {
       const updatedClass = await newClass.save();
       console.log("is not found", updatedClass);
-      res.status(201).send("class added successfully 2");
+      res.status(201).send({
+        message: "New class added successfully",
+        updatedClass: updatedClass,
+        success: true,
+      });
     }
     data.forEach(async (item) => {
       try {
@@ -36,7 +51,14 @@ router.route("/add-class").post(async (req, res) => {
             { sectionField: [...item.sectionField, sectionField] },
             { new: true }
           );
-          await res.status(201).send("New section added");
+          await res
+            .status(201)
+            .send({ message: "New section added", success: true });
+        } else if (
+          item.classField === classField &&
+          item.sectionField.includes(sectionField)
+        ) {
+          await res.status(200).send({ message: "Record already exist" });
         }
       } catch (error) {
         console.log("Eror", error);

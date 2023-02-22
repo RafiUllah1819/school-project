@@ -12,7 +12,7 @@ export const StudentAdd = () => {
     (state) => state.ReducerGetClass.getClasses.data
   );
   console.log("all classses", allClasses);
-
+  // console.log("checking fields", allClasses[0].sectionField[1]);
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
@@ -24,10 +24,10 @@ export const StudentAdd = () => {
   }
 
   const onSelectOption = (event) => {
-    const selectOption = event.target.value;
-    console.log("select clicked", selectOption);
+    const selectValue = event.target.value;
+    console.log("select clicked", selectValue);
     const filterData = allClasses.filter(
-      (item) => item.classField === selectOption
+      (item) => item.classField === selectValue
     );
     const updatedSections =
       filterData &&
@@ -38,22 +38,12 @@ export const StudentAdd = () => {
     setSelectOption(updatedSections);
     // console.log("updated dat", updatedata);
   };
-  console.log("select option", typeof selectOption);
+  console.log("select option", selectOption);
 
   const onSelectSection = (event) => {
     const value = event.target.value;
     console.log("section value", value);
   };
-
-  // iterate list of sections
-  // const listOfSections =
-  //   selectOption &&
-  //   selectOption.map((option) => (
-  //     <option value={option} key={option}>
-  //       {option}
-  //     </option>
-  //   ));
-  // console.log("list of section", listOfSections);
 
   return (
     <div className="page-wrapper">
@@ -64,6 +54,7 @@ export const StudentAdd = () => {
         <div className="card">
           <div className="card-body">
             <h2 className="card-text">Student Information</h2>
+
             <div className="d-flex form-fields-wrap">
               {studentInfo.map((info, index) => {
                 // console.log(info);
@@ -93,7 +84,7 @@ export const StudentAdd = () => {
                         <select name={info.name} onChange={handleChange}>
                           <option value="select">Select</option>
                           {info.value.map((item, index) => (
-                            <option key={item._id} value={item}>
+                            <option key={index} value={item}>
                               {item}
                             </option>
                           ))}
@@ -113,9 +104,9 @@ export const StudentAdd = () => {
                   <select name="class" id="" onChange={onSelectOption}>
                     <option value="">Select Class</option>
                     {allClasses &&
-                      allClasses.map((option) => {
+                      allClasses.map((option, index) => {
                         return (
-                          <option key={option._id} value={option.classField}>
+                          <option key={index} value={option.classField}>
                             {option.classField}
                           </option>
                         );
@@ -129,7 +120,16 @@ export const StudentAdd = () => {
                   Section
                 </label>
                 <div className="student-select">
-                  <select name="section" onChange={onSelectSection}></select>
+                  <select name="section" onChange={onSelectSection}>
+                    {selectOption[0]?.map((option, index) => {
+                      console.log("index", index);
+                      return (
+                        <option value={option} key={index}>
+                          {option}
+                        </option>
+                      );
+                    })}
+                  </select>
                   <i className="fa fa-angle-down"></i>
                 </div>
               </div>

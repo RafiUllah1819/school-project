@@ -86,3 +86,24 @@ $wf-black: 900;
   background: #4c49d6;
   border-radius: 4px;
 }
+.form-field {
+  position: relative;
+}
+.text-danger {
+  color: #ff0000;
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  font-size: 15px;
+}
+.success {
+  color: #008000;
+}
+.card-body {
+  position: relative;
+}
+.show-message {
+  position: absolute;
+  bottom: 50px;
+  left: 40%;
+}
