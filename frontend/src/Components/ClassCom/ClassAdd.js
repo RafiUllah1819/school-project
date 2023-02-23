@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import uuid from "react-uuid";
 
 export const ClassAdd = () => {
+  const [isValid, setIsValid] = useState(true);
   const [successMessage, setSuccessMessage] = useState({});
   const [showSuccessMessage, setShowSuccessMessage] = useState(false);
   const [valid, setValid] = useState(false);
@@ -10,6 +12,7 @@ export const ClassAdd = () => {
     classField: "",
     sectionField: "",
   });
+  const array = ["one", "two", "three"];
 
   function handleSuccess(msg, success) {
     setSuccessMessage(msg, success);
@@ -20,12 +23,11 @@ export const ClassAdd = () => {
       setShowSuccessMessage(false);
     }, 5000);
   }
-  // console.log("success msg", successMessage);
-  // console.log("success condition", showSuccessMessage);
+
   const onSubmit = async (e) => {
     e.preventDefault();
     const { classField, sectionField } = state;
-    if (classField < 1 || sectionField < 1) {
+    if (classField < 1 || !isValid || sectionField < 1) {
       setValid(true);
     } else {
       setValid(false);
@@ -53,6 +55,29 @@ export const ClassAdd = () => {
   };
   console.log("class data", state);
 
+  const onChangeClassField = (e) => {
+    const inputValue = e.target.value;
+    setState({
+      ...state,
+      classField: inputValue,
+    });
+    const isValidInput =
+      ["kg", "nursary", "KG", "NURSARY", "NUR"].includes(
+        inputValue.toUpperCase()
+      ) ||
+      (!isNaN(Number(inputValue)) && inputValue >= 1 && inputValue <= 12);
+    console.log("validInput", isValidInput);
+    setIsValid(isValidInput);
+  };
+
+  const onChangeSectionField = (e) => {
+    const inputValue = e.target.value;
+    setState({
+      ...state,
+      sectionField: inputValue.toUpperCase(),
+    });
+  };
+
   return (
     <div className="page-wrapper">
       <div className="add-class container-fluid">
@@ -72,9 +97,7 @@ export const ClassAdd = () => {
                   placeholder="Enter Class"
                   className="input-field"
                   value={state.classField}
-                  onChange={(e) =>
-                    setState({ ...state, classField: e.target.value })
-                  }
+                  onChange={onChangeClassField}
                 />
                 {valid && state.classField === "" ? (
                   <span className="text-danger">Class is required</span>
@@ -87,17 +110,17 @@ export const ClassAdd = () => {
                   placeholder="Enter section"
                   className="input-field"
                   value={state.sectionField}
-                  onChange={(e) =>
-                    setState({
-                      ...state,
-                      sectionField: e.target.value,
-                    })
-                  }
+                  onChange={onChangeSectionField}
                 />
                 {valid && state.sectionField === "" ? (
                   <span className="text-danger">Section is required</span>
                 ) : null}
               </div>
+              {!isValid && (
+                <p className="text-danger">
+                  Only numbers or letters like KG & Nursary allowed
+                </p>
+              )}
             </div>
             <div className="form-field">
               <div className="show-message">

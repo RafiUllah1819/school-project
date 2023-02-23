@@ -8,11 +8,11 @@ export const StudentAdd = () => {
   const [student, setStudent] = useState(studentObj);
   const [selectOption, setSelectOption] = useState([]);
   const dispatch = useDispatch();
-  const allClasses = useSelector(
-    (state) => state.ReducerGetClass.getClasses.data
-  );
+  const allData = useSelector((state) => state.ReducerGetClass.getClasses.data);
+  const allClasses =
+    allData && allData.sort((a, b) => a.classField - b.classField);
   console.log("all classses", allClasses);
-  // console.log("checking fields", allClasses[0].sectionField[1]);
+
   useEffect(() => {
     dispatch(fetchUsers());
   }, []);
@@ -25,7 +25,7 @@ export const StudentAdd = () => {
 
   const onSelectOption = (event) => {
     const selectValue = event.target.value;
-    console.log("select clicked", selectValue);
+    // console.log("select clicked", selectValue);
     const filterData = allClasses.filter(
       (item) => item.classField === selectValue
     );
@@ -38,7 +38,6 @@ export const StudentAdd = () => {
     setSelectOption(updatedSections);
     // console.log("updated dat", updatedata);
   };
-  console.log("select option", selectOption);
 
   const onSelectSection = (event) => {
     const value = event.target.value;
@@ -98,7 +97,7 @@ export const StudentAdd = () => {
 
               <div className="form-field">
                 <label htmlFor="" className="form-label">
-                  Class
+                  Class*
                 </label>
                 <div className="student-select">
                   <select name="class" id="" onChange={onSelectOption}>
@@ -117,10 +116,11 @@ export const StudentAdd = () => {
               </div>
               <div className="form-field">
                 <label htmlFor="" className="form-label">
-                  Section
+                  Section*
                 </label>
                 <div className="student-select">
                   <select name="section" onChange={onSelectSection}>
+                    <option value="">Select Section</option>
                     {selectOption[0]?.map((option, index) => {
                       console.log("index", index);
                       return (

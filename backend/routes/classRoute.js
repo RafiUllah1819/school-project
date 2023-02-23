@@ -12,14 +12,9 @@ router.route("/").get((req, res) => {
 router.route("/add-class").post(async (req, res) => {
   const data = await ClassModal.find();
   // console.log("backend data", data);
-  // const { classField, sectionField } = req.body;
+  const { classField, sectionField } = req.body;
 
-  const classField = req.body.classField.toLowerCase();
-  const sectionField = req.body.sectionField.toLowerCase();
-
-  console.log("classfield", classField);
-  console.log("secfield", sectionField);
-  const newClass = new ClassModal({ classField, sectionField });
+  const newClass = new ClassModal(req.body);
   try {
     if (data.length <= 0) {
       const updatedClass = await newClass.save();
@@ -58,7 +53,7 @@ router.route("/add-class").post(async (req, res) => {
           item.classField === classField &&
           item.sectionField.includes(sectionField)
         ) {
-          await res.status(200).send({ message: "Record already exist" });
+          await res.status(200).send({ message: "Section already exist" });
         }
       } catch (error) {
         console.log("Eror", error);

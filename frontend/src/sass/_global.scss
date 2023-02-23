@@ -67,6 +67,7 @@ $wf-black: 900;
 
 .d-flex {
   display: flex;
+  position: relative;
 }
 .plus-btn a {
   font-size: 20px;
@@ -90,6 +91,13 @@ $wf-black: 900;
   position: relative;
 }
 .text-danger {
+  color: #ff0000;
+  position: absolute;
+  left: 0;
+  bottom: 9px;
+  font-size: 15px;
+}
+.fonts-danger {
   color: #ff0000;
   position: absolute;
   left: 0;
